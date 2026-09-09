@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "nombre": "Guitarra",
+        "familia": "Cuerdas",
+        "origen": "España",
+        "descripcion": "Instrumento musical de cuerda con seis cuerdas, utilizado en diversos estilos musicales.",
+        "disponible": true
+    },
+    {
+        "id": 2,
+        "nombre": "Piano",
+        "familia": "Teclados",
+        "origen": "Italia",
+        "descripcion": "Instrumento de teclas que produce sonido mediante martillos que golpean cuerdas.",
+        "disponible": true
+    },
+    {
+        "id": 3,
+        "nombre": "Violín",
+        "familia": "Cuerdas",
+        "origen": "Italia",
+        "descripcion": "Instrumento de cuerda frotada, cuatro cuerdas, que se toca con un arco de tiento.",
+        "disponible": true
+    },
+    {
+        "id": 4,
+        "nombre": "Trompeta",
+        "familia": "Viento",
+        "origen": "Europa",
+        "descripcion": "Instrumento de metal que produce sonido mediante la vibración de los labios.",
+        "disponible": true
+    },
+    {
+        "id": 5,
+        "nombre": "Batería",
+        "familia": "Percusión",
+        "origen": "Estados Unidos",
+        "descripcion": "Conjunto de instrumentos de percusión utilizados para marcar el ritmo en diferentes estilos musicales.",
+        "disponible": true
+    },
+    {
+        "id": 6,
+        "nombre": "Sintetizador",
+        "familia": "Teclados",
+        "origen": "Estados Unidos",
+        "descripcion": "Instrumento electrónico capaz de generar y modificar sonidos mediante señales eléctricas.",
+        "disponible": true
+    },
+    {
+        "id": 7,
+        "nombre": "Serpentón",
+        "familia": "Viento",
+        "origen": "Francia",
+        "descripcion": "Antiguo instrumento de viento de gran tamaño y forma curva, utilizado principalmente entre los siglos XVI y XIX.",
+        "disponible": false
+    }
+]
