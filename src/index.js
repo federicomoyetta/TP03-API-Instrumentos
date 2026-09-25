@@ -11,14 +11,16 @@ appInstrum.use(express.json());
 async function main() {
   try {
     const datosInstr = await leerIntrumentos(rutaDatos);
-
+ 
     appInstrum.get("/", (req, res) => {
-      res.send(
-        "Bienvenidos a la API de Instrumentos Musicales // " +
-        "Para obtener todos los instrumentos, utilice la ruta /api/instrumentos // " +
-        "Para obtener un instrumento por su ID, utilice la ruta /api/instrumentos/:id // " +
-        "Para filtrar por familia de instrumentos, utilice la ruta /api/instrumentosxfamilia?familia=nombreFamilia"
-      );
+      res.json({
+        mensaje: "Bienvenidos a la API de Instrumentos Musicales",
+        rutas: {
+          obtenerTodos: "/api/instrumentos",
+          obtenerPorId: "/api/instrumentos/:id",
+          filtrarPorFamilia: "/api/instrumentos?familia=nombreFamilia",
+        },
+      });
     });
 
     appInstrum.get("/api/instrumentos", (req, res) => {
@@ -34,7 +36,7 @@ async function main() {
       res.json(instrumento);
     });
 
-    appInstrum.get("/api/instrumentosxfamilia/", (req, res) => {
+    appInstrum.get("/api/instrumentos?familia=:familia", (req, res) => {
       const familia = req.query.familia;
       const instrumentoPorFamilia = datosInstr.filter((f) =>
         f.familia.toLowerCase().includes(familia.toLowerCase()),
@@ -48,12 +50,15 @@ async function main() {
     });
 
     appInstrum.post("/api/instrumentos", (req, res) => {
-      const { id, nombre, familia, origen, descripcion, disponible } = req.body;
-      if (!id || !nombre || !familia || !origen || !descripcion || disponible === undefined) {
+      const { nombre, familia, origen, descripcion, disponible } = req.body;
+      if (!nombre || !familia || !origen || !descripcion || disponible === undefined) {
         return res.status(400).json({ error: "Faltan datos del instrumento" });
       }
+
+      const ultimoId = datosInstr.length > 0? Math.max(...datosInstr.map((i) => i.id)): 0;
+ 
       const nuevoInstrumento = {
-        id: instrumentos.length + 1,
+        id: ultimoId + 1,
         nombre: "Bongó",
         familia: "Percusión",
         origen: "Cuba",
